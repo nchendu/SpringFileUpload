@@ -59,6 +59,19 @@
 			<version>1.4</version>
 		</dependency>
 
+		<!--Thease are Just useful to test the application Not need for Development -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.25</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.25</version>
+		</dependency>
+		<!--Thease are Just useful to test the application Not need for Development -->
+
 	</dependencies>
 
 	<properties>
