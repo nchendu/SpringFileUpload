@@ -1,4 +1,4 @@
-package com.spring.boot.fileupload;
+package com.spring.boot.fileupload.bean;
 
 import org.springframework.stereotype.Component;
 

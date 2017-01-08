@@ -1,6 +1,5 @@
-package com.spring.boot.fileupload;
+package com.spring.boot.fileupload.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -13,12 +12,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.spring.boot.fileupload.bean.FileUploadResponse;
+import com.spring.boot.fileupload.service.FileService;
 
 @Controller
 public class FileUploadController {
@@ -32,17 +32,17 @@ public class FileUploadController {
 	}
 
 	@PostMapping("/")
-	 @Consumes("multipart/mixed") 
-	@Produces({MediaType.APPLICATION_JSON_VALUE})
+	@Consumes("multipart/mixed")
+	@Produces({ MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile[] files,
 
-			  RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes) {
 
 		System.out.println("files length===>" + files.length);
-		List<FileUploadResponse> fs=	fileService.getFiles(files);
+		List<FileUploadResponse> fs = fileService.getFiles(files);
 		System.out.println("&*&*&**&&&**(");
 
-		return  "SUCCESS";
+		return "SUCCESS";
 
 	}
 
@@ -51,5 +51,5 @@ public class FileUploadController {
 			RedirectAttributes redirectAttributes) {
 		return fileService.getFiles(files);
 	}
- 
+
 }
